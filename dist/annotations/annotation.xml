@@ -1,0 +1,183 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/audi/1FFIAR_DEBITORENPOS_SRV/$metadata">
+        <edmx:Include Namespace="AUDI.1FFIAR_DEBITORENPOS_SRV"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="AUDI.1FFIAR_DEBITORENPOS_SRV.xAUDIx1FBW_C_A25Parameters/p_stichtag">
+                <Annotation Term="Common.Label" String="{@i18n>stichtag}"></Annotation>
+            </Annotations>
+            <Annotations Target="AUDI.1FFIAR_DEBITORENPOS_SRV.xAUDIx1FBW_C_A25Result/ident">
+                <Annotation Term="Common.Text" Path="identText"></Annotation>
+            </Annotations>
+            <Annotations Target="AUDI.1FFIAR_DEBITORENPOS_SRV.xAUDIx1FBW_B_IDENTType/identValue">
+                <Annotation Term="Common.Text" Path="identText"></Annotation>
+            </Annotations>
+            <Annotations Target="AUDI.1FFIAR_DEBITORENPOS_SRV.xAUDIx1FBW_C_A25Result/Customer">
+                <Annotation Term="Common.Text" String=""></Annotation>
+            </Annotations>
+            <Annotations Target="AUDI.1FFIAR_DEBITORENPOS_SRV.xAUDIx1FBW_C_A25Result">   
+                <Annotation Term="UI.TextArrangement" 
+                            EnumMember="UI.TextArrangementType/TextOnly">
+                </Annotation> 
+                <Annotation Term="UI.SelectionFields" >
+                    <Collection>
+                        <PropertyPath>ident</PropertyPath>
+                        <PropertyPath>CompanyCode</PropertyPath>
+                        <PropertyPath>FiscalYear</PropertyPath>
+                        <PropertyPath>Customer</PropertyPath>
+                        <PropertyPath>PostingDate</PropertyPath>
+                        <PropertyPath>Parameters/p_stichtag</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.Chart" >
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bar"/>
+                        <!-- ><PropertyValue Property="Title" String=""/>
+                        <PropertyValue Property="Description" String=""/>
+                        <PropertyValue Property="AxisScaling">
+                            <Record Type="UI.ChartAxisScalingType">
+                                
+                            </Record>
+                        </PropertyValue>  </!-->
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>Buchungskreiswaehrungswert</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>kategorie</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.LineItem" Qualifier="Default">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="kategorie"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Customer"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Document"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="DocumentType"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Reference"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="DocumentDate"/>
+                        </Record> 
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="PostingDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Buchungskreiswaehrungswert" />
+                        </Record>                    
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Belegwaehrungswert"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BeforeEndofMonth"/>
+                            <PropertyValue Property="Label" String="{@i18n>vorEndeDesMonats}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AfterEndofMonth"/>
+                            <PropertyValue Property="Label" String="{@i18n>nachEndeDesMonats}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ReferenceKey"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FiscalYear"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Country"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="NetDueDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CURRDATE"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="combo"/>
+                            <PropertyValue Property="Label" String="{@i18n>deblandKombo}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="DefaultVariant">
+                    <Record>
+                        <PropertyValue Property="Text" String=""/>
+                        <PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#DefaultSelectionVariant"/>
+                        <PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#DefaultPresentationVariant"/>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.SelectionVariant" Qualifier="DefaultSelectionVariant" >
+                    <Record Type="UI.SelectionVariantType">
+                    
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.PresentationVariant" Qualifier="DefaultPresentationVariant">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="ID" String=""/>
+                        <PropertyValue Property="Text" String="Default"/>
+                        <PropertyValue Property="GroupBy">
+                            <Collection>
+                                <PropertyPath>kategorie</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record>
+                                <PropertyValue Property="Property" PropertyPath="kategorie" />
+                                <PropertyValue Property="Descending" Bool="false" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TotalBy">
+                            <Collection>
+                                <PropertyPath>kategorie</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Total">
+                            <Collection>
+                                <PropertyPath>Belegwaehrungswert</PropertyPath>
+                                <PropertyPath>Buchungskreiswaehrungswert</PropertyPath>
+                                <PropertyPath>BeforeEndofMonth</PropertyPath>
+                                <PropertyPath>AfterEndofMonth</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="IncludeGrandTotal" Bool="true"/>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem#Default</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                
+                </Annotation>                
+            </Annotations>            
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.5"
+metadata:
+  name: audi.fi.ar.customerItems.debitorenposten1
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: HTTP_OP_PP_AFE200_BAS
+          url: http://AFE:443
+        app:
+          name: /AUDI/1FAR_DEBITORPOS
+          description: Debitoren Posten
+          package: /AUDI/1FFI_AR
+          transport: AFEK950450
